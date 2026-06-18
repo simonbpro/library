@@ -1,0 +1,5 @@
+# telling the linguist to ignore Vendor files
+static/* linguist-vendored
+
+# ignore HTML & CSS
+*.html linguist-detectable=false
