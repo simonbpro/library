@@ -3,4 +3,4 @@ static/* linguist-vendored
 
 # ignore HTML & CSS
 *.html linguist-detectable=false
-*.css
+*.css 
