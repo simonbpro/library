@@ -14,5 +14,5 @@ enum BookStatus: string {
             self::Borrowed => 'Emprunté',
             self::Unavailable => 'Indisponible',
         };
-    }
+    }  
 }
