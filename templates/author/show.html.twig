@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur{% endblock %}
+
+{% block body %}
+<section class="container px-4">
+    <h1>Auteur : </h1>
+
+    {% if author is not null %}
+        <div class="card mb-1 m-auto">
+            <div class="card-body">
+                <div class="card-title d-flex justify-content-between">
+                    <h4 class="mb-1">{{ author.getAuthorName() }}</h4>
+                    <small class="text-muted">Identifiant : {{ author.getId() }}</small>
+                </div>
+               
+            </div>
+        </div>
+    {% else %}
+        <div>Auteur non trouvé</div>
+    {% endif %}
+</section>
+{% endblock %}

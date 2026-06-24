@@ -12,7 +12,18 @@
                 <div class="col-md-6">
                     <div class="small mb-1">ISBN: {{ book.getIsbn() }}</div>
                     <h1 class="display-5 fw-bolder">{{ page_title }}</h1>
-
+                        <div class="list-group-item">
+                            <h5>Auteur : </h5>
+                            <ul class="list-group list-group-flush">
+                                {% for author in book.authors %}
+                                    <li class="list-group-item">
+                                        <a href="{{ path('app_author_show', {id: author.getId()}) }}">{{ author.getAuthorName() }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="list-group-item">Pas d'auteur connu</li>
+                                {% endfor %}
+                            </ul>
+                         </div>
                     <div class="fs-5">
                         <span>Éditeur: {{ book.editor.getEditorName() }}</span>
                     </div>

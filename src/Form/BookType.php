@@ -2,11 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Author;
+
 use App\Entity\Book;
 use App\Entity\Editor;
-use App\Enum\BookStatus;
-use App\Form\DataTransformer\ToStringTransformer;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -22,8 +21,7 @@ class BookType extends AbstractType
             ->add('title')
             ->add('isbn')
             ->add('cover')
-            ->add('editedAt',  null, [
-                'input' => 'datetime_immutable',
+            ->add('editedAt', null, [
                 'widget' => 'single_text',
             ])
             ->add('status', ChoiceType::class, [
@@ -35,7 +33,12 @@ class BookType extends AbstractType
             ])
             ->add('editor', EntityType::class, [
                 'class' => Editor::class,
-                'choice_label' => 'id',
+                'choice_label' => 'editor_name',
+            ])
+            ->add('authors', EntityType::class, [
+                'class' => Author::class,
+                'choice_label' => 'author_name',
+                'multiple' => true,
             ])
         ;
     }
